@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
+:root{
+  --bg: #FFF6E5;
+  --card: #fff;
+  --accent: #FF6B35;
+  --accent-2: #FCA311;
+  --muted: #7A2E2E;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Baloo 2', sans-serif;
+  background: var(--bg);
+  color: var(--muted);
+}
+
+.container{padding:20px; max-width:1100px; margin:0 auto}
+
+.site-header{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 20px; background:linear-gradient(90deg,#fff0,#fff0); border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.brand{display:flex; gap:12px; cursor:pointer; align-items:center}
+.logo-dot{width:42px;height:42px;border-radius:50%;background:var(--accent-2); box-shadow:0 6px 14px rgba(0,0,0,0.08)}
+.brand h3{margin:0;font-size:18px}
+.brand small{display:block;color:#5b3a3a;font-size:12px}
+
+.nav button{margin-left:8px;border:0;background:none;padding:8px 10px;border-radius:8px;cursor:pointer}
+.nav button:hover{background:rgba(255,107,53,0.08)}
+
+.hero{padding:30px 0}
+.display{font-size:36px;margin:6px 0;color:var(--accent-2)}
+.lead{color:#8b5a5a;margin-bottom:14px}
+
+.section-title{font-size:22px;margin:16px 0 8px 0}
+
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  gap:16px;
+  margin-bottom:40px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.08)}
+.img-wrap{height:160px; background:linear-gradient(120deg,#fff7f0,#fff); display:flex;align-items:center;justify-content:center}
+.img-wrap img{max-width:100%; max-height:100%; object-fit:cover}
+.card-body{padding:12px}
+.card-title{margin:0 0 6px 0}
+.price{color:var(--accent); font-weight:700}
+
+.btn{background:var(--accent-2); color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.small{padding:6px 8px;font-size:13px}
+.loading, .error, .empty{padding:30px;text-align:center;color:#8b5a5a}
+.admin-panel .card{padding:18px}
+.admin-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.product-form label{display:block;margin-bottom:8px;font-size:14px}
+.product-form input{width:100%; padding:8px;margin-top:4px;border-radius:6px;border:1px solid #eee}
+.status{margin-top:12px;color:#7a2e2e}

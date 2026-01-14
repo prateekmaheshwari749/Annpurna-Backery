@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #7b2c2c;
+  color: white;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+.nav-icon {
+  font-size: 18px;
+}
+
+.nav-logo {
+  font-family: cursive;
+  font-size: 24px;
+}
+
+/* 🔥 MOBILE FIX */
+@media (max-width: 768px) {
+  .nav-logo {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-around;
+  }
+
+  .nav-left,
+  .nav-right {
+    gap: 14px;
+  }
+
+  .nav-text {
+    font-size: 10px;
+  }
+}
