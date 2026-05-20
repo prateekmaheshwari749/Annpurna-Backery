@@ -3,7 +3,7 @@
     "id": "cake",
     "name": "Cake",
     "price": 450,
-    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop",
+    "image": "/products/cake%201.jpeg",
     "category": "Cakes"
   },
   {
