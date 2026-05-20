@@ -3,8 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
-import Products from "./pages/Products";   // ✅ ADD
-import Info from "./pages/Info";             // ✅ ADD
+import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
+import Info from "./pages/Info";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import { ADMIN_EMAILS } from "./utils/admin";
@@ -15,7 +16,6 @@ import EditProduct from "./pages/EditProduct";
 export default function App() {
   const [user, setUser] = useState(null);
 
-  // 🔥 Load user from localStorage on refresh
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -30,14 +30,13 @@ export default function App() {
       <Navbar user={user} isAdmin={isAdmin} />
 
       <Routes>
-        {/* PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/products" element={<Products />} /> {/* ✅ FIX */}
-        <Route path="/info" element={<Info />} />           {/* ✅ FIX */}
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/info" element={<Info />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
 
-        {/* 🔐 ADMIN ROUTES */}
         <Route
           path="/admin"
           element={isAdmin ? <Admin user={user} /> : <Navigate to="/login" />}

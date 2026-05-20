@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllProducts } from "@/utils/products";
 
 export default function Menu() {
@@ -23,15 +24,19 @@ export default function Menu() {
       {products.length === 0 && <p>No products available</p>}
 
       {products.map((p) => (
-        <div key={p.id} className="bg-white p-4 rounded shadow">
+        <Link
+          key={p.id}
+          to={`/products/${p.id}`}
+          className="bg-white p-4 rounded shadow block"
+        >
           <img
             src={p.image}
             alt={p.name}
             className="h-40 w-full object-cover rounded"
           />
           <h3 className="font-bold mt-2">{p.name}</h3>
-          <p>₹ {p.price}</p>
-        </div>
+          <p>Rs. {p.price}</p>
+        </Link>
       ))}
     </div>
   );

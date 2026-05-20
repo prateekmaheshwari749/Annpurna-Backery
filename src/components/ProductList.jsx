@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllProducts } from "@/utils/products";
 
 const ProductList = () => {
@@ -29,9 +30,10 @@ const ProductList = () => {
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
       {products.map((p) => (
-        <div
+        <Link
           key={p.id}
-          className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition"
+          to={`/products/${p.id}`}
+          className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition block"
         >
           <img
             src={p.image}
@@ -39,14 +41,10 @@ const ProductList = () => {
             className="h-40 w-full object-cover rounded-lg"
           />
 
-          <h3 className="font-bold mt-3 text-lg">
-            {p.name}
-          </h3>
+          <h3 className="font-bold mt-3 text-lg">{p.name}</h3>
 
-          <p className="text-gray-700">
-            ₹ {p.price}
-          </p>
-        </div>
+          <p className="text-gray-700">Rs. {p.price}</p>
+        </Link>
       ))}
     </div>
   );

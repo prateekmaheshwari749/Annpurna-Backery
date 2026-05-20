@@ -57,6 +57,9 @@ const normalizeProduct = (product, fallbackId) => ({
   price: Number(product.price) || 0,
   image: product.image || "",
   category: product.category || "Bakery",
+  description:
+    product.description ||
+    "Freshly prepared with care using quality ingredients for a rich bakery taste.",
 });
 
 export const getLocalProducts = () => {
@@ -98,4 +101,9 @@ export const getAllProducts = async () => {
   const products = [...hostedProducts, ...localProducts];
 
   return products.length > 0 ? products : defaultProducts;
+};
+
+export const getProductById = async (id) => {
+  const products = await getAllProducts();
+  return products.find((product) => String(product.id) === String(id)) || null;
 };

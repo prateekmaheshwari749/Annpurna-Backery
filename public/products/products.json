@@ -4,7 +4,8 @@
     "name": "Cake",
     "price": 450,
     "image": "/products/cake%201.jpeg",
-    "category": "Cakes"
+    "category": "Cakes",
+    "description": "A celebration cake made for special moments, decorated with a soft finish and fresh party-style detailing."
   },
   {
     "id": "classic-croissant",
