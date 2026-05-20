@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/annapurnabakery",
+    href: "https://www.instagram.com/annapurnabakeryandchoclates12?igsh=MTVkaGI3bTdzenlwbw==",
     icon: Instagram,
   },
   {
