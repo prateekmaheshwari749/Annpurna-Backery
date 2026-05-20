@@ -4,25 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login({ setUser }) {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const login = async () => {
-    try {
-      const res = await signInWithPopup(auth, provider);
+    const res = await signInWithPopup(auth, provider);
 
-      const userData = {
-        email: res.user.email,
-        name: res.user.displayName,
-        photo: res.user.photoURL,
-      };
+    const userData = {
+      email: res.user.email,
+      name: res.user.displayName,
+      photo: res.user.photoURL,
+    };
 
-      setUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
-
-      navigate("/"); // login ke baad home
-    } catch (err) {
-      alert("Login failed");
-      console.error(err);
-    }
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
+    navigate("/");
   };
 
   const logout = async () => {
@@ -31,69 +26,44 @@ export default function Login({ setUser }) {
     localStorage.removeItem("user");
   };
 
-  const user = JSON.parse(localStorage.getItem("user"));
-
   return (
-    <div
-      style={{
-        minHeight: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#FFF5F0",
-      }}
-    >
-      <div
-        style={{
-          width: 350,
-          background: "white",
-          padding: 30,
-          borderRadius: 15,
-          boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
-          textAlign: "center",
-        }}
-      >
-        <h1 style={{ color: "#7B2C2C" }}>Annapurna Bakery</h1>
-        <p style={{ color: "#777" }}>Freshly baked happiness 🍰</p>
+    <div className="min-h-screen flex items-center justify-center bg-[#FFF5F0] px-4">
+      <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-8 text-center">
+        
+        {/* Image */}
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"
+          alt="bakery"
+          className="w-20 mx-auto mb-4"
+        />
+
+        <h1 className="font-serif text-2xl font-bold text-primary">
+          Annapurna Bakery
+        </h1>
+        <p className="text-sm text-gray-600 mb-6">
+          Freshly baked happiness 🍰
+        </p>
 
         {!user ? (
           <button
             onClick={login}
-            style={{
-              width: "100%",
-              padding: "12px",
-              background: "#7B2C2C",
-              color: "white",
-              border: "none",
-              borderRadius: 25,
-              fontSize: 16,
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
+            className="w-full bg-primary text-white py-3 rounded-full font-semibold hover:opacity-90 transition"
           >
-            Sign in with Google
+            Continue with Google
           </button>
         ) : (
           <>
             <img
               src={user.photo}
               alt="profile"
-              style={{ borderRadius: "50%", width: 80 }}
+              className="w-20 h-20 rounded-full mx-auto mb-3"
             />
-            <p>{user.name}</p>
-            <p style={{ fontSize: 14 }}>{user.email}</p>
+            <p className="font-medium">{user.name}</p>
+            <p className="text-sm text-gray-600">{user.email}</p>
 
             <button
               onClick={logout}
-              style={{
-                marginTop: 20,
-                padding: "10px 25px",
-                borderRadius: 20,
-                border: "none",
-                background: "#999",
-                color: "white",
-                cursor: "pointer",
-              }}
+              className="mt-5 bg-gray-400 text-white px-6 py-2 rounded-full"
             >
               Logout
             </button>

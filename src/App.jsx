@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import Products from "./pages/Products";   // ✅ ADD
+import Info from "./pages/Info";             // ✅ ADD
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import { ADMIN_EMAILS } from "./utils/admin";
@@ -28,11 +30,14 @@ export default function App() {
       <Navbar user={user} isAdmin={isAdmin} />
 
       <Routes>
+        {/* PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/products" element={<Products />} /> {/* ✅ FIX */}
+        <Route path="/info" element={<Info />} />           {/* ✅ FIX */}
         <Route path="/login" element={<Login setUser={setUser} />} />
 
-        {/* 🔐 Protected Admin Routes */}
+        {/* 🔐 ADMIN ROUTES */}
         <Route
           path="/admin"
           element={isAdmin ? <Admin user={user} /> : <Navigate to="/login" />}

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "cake",
+    "name": "Cake",
+    "price": 450,
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop",
+    "category": "Cakes"
+  },
+  {
+    "id": "classic-croissant",
+    "name": "Classic Croissant",
+    "price": 120,
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&h=600&fit=crop",
+    "category": "Pastries"
+  },
+  {
+    "id": "chocolate-cake",
+    "name": "Chocolate Cake",
+    "price": 450,
+    "image": "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&h=600&fit=crop",
+    "category": "Cakes"
+  },
+  {
+    "id": "sourdough-loaf",
+    "name": "Sourdough Loaf",
+    "price": 180,
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=600&fit=crop",
+    "category": "Breads"
+  },
+  {
+    "id": "fruit-danish",
+    "name": "Fruit Danish",
+    "price": 140,
+    "image": "https://images.unsplash.com/photo-1623334044303-241021148842?w=600&h=600&fit=crop",
+    "category": "Pastries"
+  },
+  {
+    "id": "butter-cookies",
+    "name": "Butter Cookies",
+    "price": 90,
+    "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&h=600&fit=crop",
+    "category": "Cookies"
+  },
+  {
+    "id": "black-forest-cake",
+    "name": "Black Forest Cake",
+    "price": 550,
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&h=600&fit=crop",
+    "category": "Cakes"
+  }
+]

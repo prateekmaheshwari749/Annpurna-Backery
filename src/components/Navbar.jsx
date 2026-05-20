@@ -1,60 +1,91 @@
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import {
-  FaBars,
-  FaTimes,
-  FaHome,
-  FaStore,
-  FaBirthdayCake,
-  FaShoppingCart,
-  FaUser,
-  FaEdit,
-  FaUserShield,
-} from "react-icons/fa";
 
-export default function Navbar({ isAdmin }) {
+const Navbar = ({ user, isAdmin }) => {
   const [open, setOpen] = useState(false);
 
-  return (
-    <nav className="navbar">
-      {/* TOP BAR */}
-      <div className="nav-top">
-        <h2 className="logo">Annapurna Bakery</h2>
+  const linkClass =
+    "block text-lg md:text-sm hover:text-primary transition";
 
-        <button className="hamburger" onClick={() => setOpen(!open)}>
-          {open ? <FaTimes /> : <FaBars />}
+  return (
+    <nav className="fixed top-0 left-0 w-full bg-white border-b z-50">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        
+        {/* LOGO */}
+        <h1 className="font-serif text-lg font-bold text-primary">
+          Annapurna Bakery
+        </h1>
+
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-6 font-medium">
+          <NavLink to="/" className={linkClass}>Home</NavLink>
+          <NavLink to="/menu" className={linkClass}>Menu</NavLink>
+          <NavLink to="/products" className={linkClass}>Products</NavLink>
+
+
+          {!user && (
+            <NavLink to="/login" className={linkClass}>
+              Login
+            </NavLink>
+          )}
+
+          {isAdmin && (
+            <NavLink
+              to="/admin"
+              className="font-semibold text-primary"
+            >
+              Admin Panel
+            </NavLink>
+          )}
+        </div>
+
+        {/* MOBILE HAMBURGER */}
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
         </button>
       </div>
 
-      {/* MENU */}
-      <div className={`nav-menu ${open ? "open" : ""}`}>
-        <NavItem to="/" icon={<FaHome />} label="Home" />
-        <NavItem to="/menu" icon={<FaStore />} label="Menu" />
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden flex flex-col gap-4 px-6 py-6 bg-white">
+          <NavLink to="/" onClick={() => setOpen(false)} className={linkClass}>
+            Home
+          </NavLink>
+          <NavLink to="/products" onClick={() => setOpen(false)} className={linkClass}>
+            Products
+          </NavLink>
 
-        {isAdmin && (
-          <>
-            <NavItem to="/admin" icon={<FaUserShield />} label="Admin" />
-            <NavItem
-              to="/admin/products"
-              icon={<FaEdit />}
-              label="Edit Products"
-            />
-          </>
-        )}
 
-        <NavItem to="/products" icon={<FaBirthdayCake />} label="Products" />
-        <NavItem to="/cart" icon={<FaShoppingCart />} label="Cart" />
-        <NavItem to="/login" icon={<FaUser />} label="Login" />
-      </div>
+          <NavLink to="/menu" onClick={() => setOpen(false)} className={linkClass}>
+            Menu
+          </NavLink>
+
+          {!user && (
+            <NavLink
+              to="/login"
+              onClick={() => setOpen(false)}
+              className={linkClass}
+            >
+              Login
+            </NavLink>
+          )}
+
+          {isAdmin && (
+            <NavLink
+              to="/admin"
+              onClick={() => setOpen(false)}
+              className="font-semibold text-primary text-lg"
+            >
+              Admin Panel
+            </NavLink>
+          )}
+        </div>
+      )}
     </nav>
   );
-}
+};
 
-function NavItem({ to, icon, label }) {
-  return (
-    <Link to={to} className="nav-item">
-      {icon}
-      <span>{label}</span>
-    </Link>
-  );
-}
+export default Navbar;
