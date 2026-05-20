@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Products from "./pages/Products";
@@ -54,6 +55,8 @@ export default function App() {
           element={isAdmin ? <EditProduct /> : <Navigate to="/login" />}
         />
       </Routes>
+
+      <Footer />
     </>
   );
 }
