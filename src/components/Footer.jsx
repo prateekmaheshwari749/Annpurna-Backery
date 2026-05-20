@@ -9,7 +9,7 @@ const socialLinks = [
   },
   {
     label: "YouTube",
-    href: "https://youtube.com/@annapurnabakery",
+    href: "https://youtube.com/@seemadhanani9175",
     icon: Youtube,
   },
   {
